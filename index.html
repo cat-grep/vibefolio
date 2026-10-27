@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Vibefolio</title>
+  <meta name="description" content="A five-step route from an empty folder to a published portfolio, built with an AI coding agent.">
+
+  <!--
+    Where to edit what:
+    - Step titles and intro text ................ this file
+    - Step times ............................... js/content.js (CHAPTERS)
+    - Option lists, ideas, checklists ........... js/content.js
+    - The prompts students copy ................. js/prompts.js
+    - Colors, fonts, spacing .................... css/style.css
+    - Small drawings on picture choices ......... js/pictures.js
+    - Page behaviour (rarely needed) ............ js/app.js
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800;900&family=Overpass+Mono:wght@400;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-heading">
+    <p class="eyebrow">A five-step workshop</p>
+    <a class="btn ghost" href="https://github.com/cat-grep/vibefolio/discussions" target="_blank" rel="noopener noreferrer" aria-label="Community on GitHub (opens in a new tab)"><svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false" style="flex-shrink:0"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>Community ↗</a>
+  </div>
+  <h1>Vibefolio</h1>
+  <p class="lede">Ride this line from an empty folder to your own published portfolio. Step 0 gets you ready. At Steps 1 to 4 you answer a few questions, copy one prompt into your AI agent, and check the result; your site goes live at Step 4. Step 5 is yours to keep exploring. Times are a guide: take as long as your own content needs.</p>
+  <div class="map" id="map"></div>
+  <div class="hero-tools">
+    <button class="btn ghost small" type="button" data-action="backup">Back up my answers</button>
+    <label class="btn ghost small" for="restore">Restore answers</label>
+    <input class="sr" id="restore" type="file" accept=".json,application/json">
+    <span class="save-state" id="saveState" aria-live="polite">Your answers stay in this browser only.</span>
+  </div>
+</header>
+
+<div class="grid">
+  <nav class="rail" aria-label="Steps"><ol id="rail"></ol></nav>
+
+  <main>
+    <div class="topbar" id="topbar" aria-hidden="true"></div>
+
+    <!-- Step 0 -->
+    <section class="chapter" id="ch0" style="--c:var(--c0)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">0</span>
+        <div class="station-t"><p class="eyebrow">Setup</p><h2>Get your tools ready</h2></div>
+        <p class="turn"><span>Your turn</span><b>10–30 min</b></p>
+      </div>
+      <div class="story">
+        <p>You need a GitHub account, two free apps, one AI coding agent of your choice, and an empty folder. Tick each box as you go.</p>
+      </div>
+      <div id="s0"></div>
+    </section>
+
+    <!-- Step 1 -->
+    <section class="chapter" id="ch1" style="--c:var(--c1)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">1</span>
+        <div class="station-t"><p class="eyebrow">Your style</p><h2>Decide how it should feel</h2></div>
+        <p class="turn"><span>Your turn</span><b>10–20 min</b></p>
+      </div>
+      <div class="story">
+        <p>You don’t need to know design. Tell your agent what you love, and it will build a style from it that is yours: colors, fonts, shapes and layout.</p>
+        <p>Nothing is final. The agent shows you a plan first, and you can change anything before it builds.</p>
+      </div>
+      <div id="s1"></div>
+      <div id="send1"></div>
+    </section>
+
+    <!-- Step 2 -->
+    <section class="chapter" id="ch2" style="--c:var(--c2)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">2</span>
+        <div class="station-t"><p class="eyebrow">About you</p><h2>Say who you are</h2></div>
+        <p class="turn"><span>Your turn</span><b>10+ min</b></p>
+      </div>
+      <div class="story">
+        <p>Paste your whole resume. Your agent picks what belongs on a portfolio, writes it up, and shows you the text before it builds. You fix anything wrong in the plan or after.</p>
+      </div>
+      <div id="s2"></div>
+      <div id="send2"></div>
+    </section>
+
+    <!-- Step 3 -->
+    <section class="chapter" id="ch3" style="--c:var(--c3)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">3</span>
+        <div class="station-t"><p class="eyebrow">Your projects</p><h2>Show your best work</h2></div>
+        <p class="turn"><span>Your turn</span><b>10+ min</b></p>
+      </div>
+      <div class="story">
+        <p>Drop your work into one folder. Your agent looks at every file, groups it into projects and drafts the text. You correct its draft before anything is built.</p>
+      </div>
+      <div id="s3"></div>
+      <div id="send3"></div>
+    </section>
+
+    <!-- Step 4 -->
+    <section class="chapter" id="ch4" style="--c:var(--c4)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">4</span>
+        <div class="station-t"><p class="eyebrow">Review and publish</p><h2>Look, fix, go live</h2></div>
+        <p class="turn"><span>Your turn</span><b>30+ min</b></p>
+      </div>
+      <div class="story">
+        <p>Open your site in the browser and follow the review checklist at your own pace. Mark what needs a fix, ask your agent to help, then re-test before publishing.</p>
+      </div>
+      <div id="s4"></div>
+      <div id="send4"></div>
+      <div id="pub"></div>
+    </section>
+
+    <!-- Step 5 -->
+    <section class="chapter" id="ch5" style="--c:var(--c5)">
+      <div class="station">
+        <span class="badge" aria-hidden="true">5</span>
+        <div class="station-t"><p class="eyebrow">Optional · after the workshop</p><h2>Keep it growing</h2></div>
+        <p class="turn"><span>Optional</span><b>anytime</b></p>
+      </div>
+      <div class="story">
+        <p>Your site is live, and this is where the fun starts. Nothing here is required. Take it as a menu of ideas for the weeks after today: tell richer stories, add a bit of play, and keep adding new work.</p>
+      </div>
+      <div id="s5"></div>
+      <p class="closing">Your capability is now limited only by your imagination.</p>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<!-- Order matters: content and prompts first, app.js last -->
+<script src="js/content.js"></script>
+<script src="js/pictures.js"></script>
+<script src="js/prompts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
