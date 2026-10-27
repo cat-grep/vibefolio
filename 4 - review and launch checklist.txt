@@ -1,0 +1,42 @@
+VIBEFOLIO — STEP 4: TEN-MINUTE WEBSITE REVIEW
+Open the site in a browser. Spend about 10 minutes, then give this filled sheet to your AI agent.
+
+MINUTE 0–2: FIRST IMPRESSION
+Q1. In five seconds, can a visitor tell who I am and what I do? [YES/NO + NOTE]
+Q2. Does the site feel like the style I asked for in Step 1? [YES/NO + NOTE]
+
+MINUTE 2–4: CONSISTENCY
+Q3. Are type sizes, colors, spacing, buttons, cards, and icon styles consistent? [NOTE]
+Q4. Are Home / Projects / About easy to find? Is Contact inside About? [NOTE]
+
+MINUTE 4–6: CONTENT & LINKS
+Q5. Any grammar, factual, chronological, collaborator-credit, or privacy errors? [NOTE]
+Q6. Do all project links/images, email links, CV downloads, and any popups work? [NOTE]
+
+MINUTE 6–8: RESPONSIVENESS & ACCESSIBILITY
+Q7. Test at narrow phone width (browser responsive mode or actual phone): overflow, small text, cramped buttons, cut-off images? [NOTE]
+Q8. Can you navigate via Tab / Enter / Escape? Contrast, visible focus, image alt text and reduced motion OK? [NOTE]
+
+MINUTE 8–10: IMPROVEMENT PRIORITIES
+Q9. What are the THREE most important fixes? Rank 1/2/3. [YOUR ANSWER]
+Q10. What should absolutely NOT change? [YOUR ANSWER]
+Q11. Optional enhancement: tasteful icons, subtle animation, image gallery, timeline? [YOUR ANSWER / NONE]
+Q12. Before public launch: any private data, licensed images, unauthorized customer work, or unverified claims to remove? [YOUR ANSWER]
+
+================ SEND TO YOUR AI AGENT ================
+Read all four completed guides (1 through 4) and inspect the current portfolio. First list the problems I identified, ordered by severity, and a short targeted plan. Implement the changes with minimal disruption to the approved design, content, and Home / Projects / About structure. Prioritize correctness, privacy, mobile layout, readability, accessibility, and broken links over decorative effects. Test paths suitable for GitHub Pages subdirectories and basic browser behavior; if you cannot test in a real browser, explicitly say so. You may suggest a small external icon library ONLY if essential; ask me first and explain license, CDN/network dependence, privacy, and an inline-SVG/no-library option. Do not add npm/build tools. Do not commit or publish. End with a concise re-test checklist.
+
+================ READY TO PUBLISH? ================
+[ ] Home, Projects, About are navigable; Contact is inside About.
+[ ] Resume facts, project credits and links verified.
+[ ] Personal/public data approved; no secrets in repo.
+[ ] Works at mobile and desktop widths; keyboard usable.
+[ ] Browser test passed and broken links fixed.
+[ ] GitHub Desktop: Commit → Push origin.
+[ ] GitHub repo: Settings → Pages → Deploy from a branch → main → /(root).
+[ ] Open your live URL and re-test. Publication may take a few minutes.
+
+OPTIONAL FINAL AI AGENT REQUEST:
+"Review this repository for GitHub Pages deployment. Verify index.html exists at the root, local asset paths are relative, and there is no build step. Explain any risks and the exact publishing steps. Do not push or publish for me."
+
+CHECKPOINT: Your real website is published from this SAME repository and tested at its public URL.

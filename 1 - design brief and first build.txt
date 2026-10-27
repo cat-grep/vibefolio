@@ -1,0 +1,66 @@
+VIBEFOLIO — STEP 1: DEFINE MY WEBSITE AND GENERATE ITS FIRST VERSION
+Fill the questions below. Replace [YOUR ANSWER] or leave “Ask me.” Examples are ideas, NOT text to publish.
+
+================ RECOMMENDED FIXED REQUIREMENTS ================
+Keep these unless you understand the tradeoffs and explicitly decide to change them.
+F1. Purpose: one professional portfolio website, built and published from THIS repository.
+F2. Navigation: exactly three top-level destinations: Home, Projects, About. Put Contact inside About. Use one page with anchor navigation OR three static HTML pages; ask me which I prefer. No separate Contact page.
+F3. Tech: plain semantic HTML + CSS + optional vanilla JavaScript. NO React/Vite/Node/npm/package manager/build step/backend by default.
+F4. Hosting: static GitHub Pages, using relative local asset paths; site must work at /repository-name/ and / for a user site.
+F5. Preview: index.html should work opened directly in a browser (file://), with no required local server. Avoid fetch() for local files and JavaScript ES modules in the MVP.
+F6. Accessibility/quality: responsive mobile-first layout, keyboard navigation, visible focus states, alt text, readable contrast, reduced-motion respect, no broken links, sensible headings and metadata.
+F7. Data integrity: NEVER invent jobs, degrees, metrics, project roles, awards, dates, testimonials, or links. Ask about missing facts. No private data without approval.
+F8. AI workflow: first read this document; FIRST WRITE A COMPLETE PLAN ONLY; wait for my explicit approval before creating/modifying website files. Preserve all numbered guide files. Do not commit/push/publish without asking.
+F9. External tools: avoid dependencies by default. Ask before introducing any third-party library or external font; explain licensing, privacy, performance, and fallback.
+
+================ YOUR CREATIVE DECISIONS ================
+S1. Site owner / displayed name? [YOUR ANSWER]
+   Example: Alex Chen
+S2. Role or professional headline? [YOUR ANSWER]
+   Example: GIS Developer | Geospatial Storyteller
+S3. Visitors and goal? [YOUR ANSWER]
+   Example: Recruiters hiring GIS engineers; make projects easy to inspect and download my CV.
+S4. What should people remember in 5 seconds? [YOUR ANSWER]
+   Example: I turn complex geographic data into clear interactive tools.
+S5. Page structure: one-page Home / Projects / About anchors, or three separate pages? [YOUR ANSWER]
+   Example: One page with three anchor sections.
+S6. Visual personality (pick 2–4 adjectives)? [YOUR ANSWER]
+   Example: Minimal, warm, editorial, calm. OR bold, playful, experimental.
+S7. Preferred colors (HEX optional) and colors to avoid? [YOUR ANSWER]
+   Example: Off-white #F7F4EE, navy #183153, orange #C46D43; avoid neon.
+S8. Typography preference? [YOUR ANSWER]
+   Example: Clean sans-serif, large headings, comfortable body text, use system font fallback.
+S9. Light / dark / automatic theme? [YOUR ANSWER]
+   Example: Light, with optional dark mode later.
+S10. Layout: cards, editorial, split-screen, magazine, or other? [YOUR ANSWER]
+   Example: Strong hero + three project cards + short biography.
+S11. Hero: portrait, abstract graphic, text-only, or project image? [YOUR ANSWER]
+   Example: Text-only hero with one featured project preview.
+S12. Motion and interaction? [YOUR ANSWER]
+   Example: Subtle hover and fade-in; no animations necessary to understand content.
+S13. Content emphasis: projects, experience, writing, research, design? [YOUR ANSWER]
+   Example: Projects first, then short background.
+S14. Sites you like / dislike and WHY? [YOUR ANSWER]
+   Example: Like clean two-column typography; dislike scrolling animations that hide text.
+S15. Accessibility and personal requirements? [YOUR ANSWER]
+   Example: English only; simple mobile navigation; no third-party trackers.
+S16. Your own constraints, or things you want the AI to ask about? [YOUR ANSWER]
+   Example: I am not ready to publish my phone number; ask before choosing any library.
+
+================ SEND TO YOUR AI AGENT — FIRST: PLAN ONLY ================
+Read "0 - setup and publishing.md" and "1 - design brief and first build.txt" in full, including my answers. You are my portfolio designer and front-end engineering assistant. Treat the F1–F9 requirements as defaults unless I explicitly overrode them. Do not use placeholder biography details as real facts.
+
+FIRST RESPONSE ONLY — DO NOT WRITE OR CHANGE FILES YET:
+A. Summarize my goals, design direction and target audience.
+B. Recommend one-page vs multi-page navigation, with rationale. Keep Home / Projects / About and Contact within About.
+C. Propose page-by-page/section-by-section wireframe and responsive behavior.
+D. Show a small design system: color roles + HEX values, typography/fallbacks, spacing, card/button/link treatment, motion rules.
+E. Explain the exact file tree you intend to CREATE in this same repo and why (e.g. index.html, style.css, script.js, assets/). No npm/build tooling.
+F. Detail the implementation milestones, testing plan, GitHub Pages compatibility and accessibility/privacy checks.
+G. List missing decisions or factual content as questions, without inventing answers.
+Finish with: "Please review this plan. I will not write any website files until you say APPROVE PLAN."
+
+================ SEND TO YOUR AI AGENT — SECOND: BUILD (AFTER APPROVAL ONLY) ================
+APPROVE PLAN. Implement the approved plan in this repository. Create the site files now. Use concise neutral placeholders labeled "Content coming in Step 2" and "Projects coming in Step 3" rather than invented credentials or fake projects. Keep Home, Projects, About (Contact inside About). Do not modify or delete the six numbered workshop guides. Verify that the page works when index.html is opened directly and uses GitHub Pages-safe relative paths. Tell me which files changed, what you tested, and what remains to fill in. Do not commit or publish.
+
+CHECKPOINT: A functioning but intentionally incomplete website exists; you reviewed the AI's PLAN before it wrote code.
