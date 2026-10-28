@@ -120,7 +120,7 @@ function pictureChoice(path, options, ariaLabel) {
   const cards = options.map(([id, label, description]) => `
     <label class="opt">
       <input type="radio" name="${path}" value="${id}" data-bind="${path}" ${current === id ? "checked" : ""}>
-      ${picture(id)}
+      ${path === "style.font" && id !== "agent" ? fontPreview(id) : picture(id)}
       <span class="opt-t">${esc(label)}</span>
       ${description ? `<span class="opt-d">${esc(description)}</span>` : ""}
     </label>`).join("");

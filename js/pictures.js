@@ -89,6 +89,14 @@ const PICTURES = {
     <circle class="k" cx="22" cy="62" r="3"/>`,
 };
 
+// Font samples stay separate from drawings: "editorial" is also a layout id.
+function fontPreview(id) {
+  return `<span class="font-preview font-preview--${id}" aria-hidden="true">
+    <span class="font-preview-title">Aa Bb</span>
+    <span class="font-preview-text">My portfolio</span>
+  </span>`;
+}
+
 // Wraps a drawing in its SVG frame, or returns "" when an option has none.
 function picture(id) {
   if (!PICTURES[id]) return "";

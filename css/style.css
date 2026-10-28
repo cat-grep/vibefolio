@@ -391,6 +391,27 @@ select:focus {
 .art .w { fill: var(--surface); }
 .art .s { fill: none; stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 3; }
 
+/* Use the same sample text so the type styles can be compared directly. */
+.font-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 6px;
+  background: var(--sunk);
+  color: var(--ink);
+  font-family: var(--f-display);
+}
+.font-preview-title { font-size: 32px; font-weight: 600; line-height: 1.1; }
+.font-preview-text { font-size: 14px; line-height: 1.4; }
+.font-preview--serif { font-family: var(--f-body); }
+.font-preview--editorial .font-preview-title { font-family: var(--f-body); }
+.font-preview--mono { font-family: var(--f-mono); }
+.font-preview--rounded { font-family: "Arial Rounded MT Bold", "Trebuchet MS", sans-serif; }
+
 
 /* ---------- Chips (tap-to-select tags) ---------- */
 
