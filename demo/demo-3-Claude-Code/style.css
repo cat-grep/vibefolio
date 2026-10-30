@@ -1,0 +1,501 @@
+/* =========================================================
+   Rowan Vale — portfolio styles
+   Style: Art Nouveau feel inspired by Alphonse Mucha,
+   with map contour lines as ornament. See portfolio-notes.md.
+   ========================================================= */
+
+/* ---------- 1. Design tokens: edit colors, fonts and spacing here ---------- */
+:root {
+  /* Colors */
+  --color-parchment: #F6EEDC;      /* page background */
+  --color-parchment-deep: #EDE1C6; /* panels, footer */
+  --color-ink: #2E2A24;            /* body text */
+  --color-olive: #3F4A2F;          /* headings, nav */
+  --color-terracotta: #7A3B2E;     /* main button, links */
+  --color-terracotta-dark: #5E2B21;/* main button hover */
+  --color-gold: #B8893A;           /* ornament only, never text */
+  --color-rose: #C98E7E;           /* ornament only, never text */
+  --color-sage: #9BAE8A;           /* ornament only, never text */
+  --color-muted: #5A5246;          /* dates and small details */
+
+  /* Fonts */
+  --font-display: "Marcellus", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing and sizes */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --page-width: 72rem;     /* widest the content gets */
+  --reading-width: 38rem;  /* comfortable line length for paragraphs */
+  --header-height: 4rem;   /* used so anchor links land below the sticky bar */
+  --radius: 0.5rem;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + var(--space-sm));
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-olive);
+  line-height: 1.2;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 var(--space-sm);
+}
+
+a {
+  color: var(--color-terracotta);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--color-terracotta-dark);
+}
+
+/* Clear, visible focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid var(--color-olive);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Hidden until a keyboard user presses Tab */
+.skip-link {
+  position: absolute;
+  left: var(--space-sm);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--color-olive);
+  color: var(--color-parchment);
+}
+
+.skip-link:focus {
+  top: var(--space-xs);
+}
+
+/* ---------- 3. Sticky header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--color-parchment);
+  border-bottom: 1px solid var(--color-gold);
+}
+
+.site-nav {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  min-height: var(--header-height);
+  padding: var(--space-xs) var(--space-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.site-nav__name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  color: var(--color-olive);
+  text-decoration: none;
+}
+
+.site-nav__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+}
+
+.site-nav__links a {
+  color: var(--color-ink);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav__links a:hover {
+  color: var(--color-terracotta);
+  border-bottom-color: var(--color-gold);
+}
+
+/* ---------- 4. Buttons and links (shared) ---------- */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px; /* rounded pill, echoing Mucha's soft curves */
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* The most important action: strongest color and weight */
+.button--primary {
+  background-color: var(--color-terracotta);
+  color: var(--color-parchment);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  padding: 0.85rem 1.75rem;
+  box-shadow: 0 0 0 3px var(--color-parchment), 0 0 0 4px var(--color-gold);
+}
+
+.button--primary:hover {
+  background-color: var(--color-terracotta-dark);
+  color: var(--color-parchment);
+}
+
+.button__note {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.button--secondary {
+  border: 1.5px solid var(--color-olive);
+  color: var(--color-olive);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-olive);
+  color: var(--color-parchment);
+}
+
+.text-link {
+  font-weight: 600;
+}
+
+/* ---------- 5. Hero (opening) ---------- */
+.hero {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm) var(--space-lg);
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.hero__name {
+  font-size: clamp(2.6rem, 9vw, 5.5rem);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-sm);
+  overflow-wrap: break-word;
+}
+
+.hero__role {
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--color-ink);
+  margin-bottom: 0.25rem;
+}
+
+.hero__place {
+  color: var(--color-muted);
+  margin-bottom: var(--space-md);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-md);
+}
+
+/* The halo ornament: a thin band on phones, full size on wider screens */
+.hero__ornament {
+  order: -1; /* sits above the name on phones as a small crest */
+  justify-self: center;
+  width: 7rem;
+}
+
+.halo {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.halo__frame {
+  fill: none;
+  stroke: var(--color-olive);
+  stroke-width: 1.5;
+}
+
+.halo__frame--inner {
+  stroke: var(--color-gold);
+  stroke-width: 1;
+}
+
+.halo__contours path {
+  fill: none;
+  stroke: var(--color-sage);
+  stroke-width: 1.4;
+}
+
+.halo__contours path:nth-child(even) {
+  stroke: var(--color-rose);
+}
+
+.halo__ring {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 2.5;
+}
+
+.halo__beads circle {
+  fill: var(--color-gold);
+}
+
+.halo__stem {
+  fill: none;
+  stroke: var(--color-olive);
+  stroke-width: 1.5;
+}
+
+.halo__stem--rose {
+  stroke: var(--color-rose);
+}
+
+.halo__leaf {
+  fill: var(--color-sage);
+}
+
+/* ---------- 6. Sections (shared) ---------- */
+.section {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+/* Section heading with a small gold ornament line after it */
+.section__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.section__title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-gold), transparent);
+}
+
+/* ---------- 7. Projects: alternating arch-topped panels ---------- */
+.project {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+/* Arch window: shows a slice of each tall poster. The slice starts below the
+   poster's own title (the curved top would cut it off) and features the map. */
+.project__media {
+  padding: 0.5rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 999px 999px var(--radius) var(--radius);
+  background-color: var(--color-parchment-deep);
+  max-width: 22rem;
+}
+
+.project__image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: 999px 999px 0.25rem 0.25rem;
+}
+
+.project__body {
+  max-width: var(--reading-width);
+}
+
+.project__title {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-bottom: var(--space-xs);
+}
+
+.project__meta {
+  color: var(--color-muted);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- 8. About ---------- */
+.about {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.about__intro {
+  max-width: var(--reading-width);
+  font-size: 1.125rem;
+}
+
+.about__heading {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-sm);
+}
+
+.detail-list {
+  list-style: none;
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+}
+
+.detail-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-parchment-deep);
+}
+
+.detail-list__date {
+  display: block;
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+
+.skill-list {
+  margin: 0;
+}
+
+.skill-list dt {
+  font-weight: 700;
+  color: var(--color-olive);
+}
+
+.skill-list dd {
+  margin: 0 0 var(--space-sm);
+}
+
+/* ---------- 9. Footer / Contact ---------- */
+.site-footer {
+  margin-top: var(--space-xl);
+  background-color: var(--color-parchment-deep);
+  border-top: 1px solid var(--color-gold);
+}
+
+.site-footer__inner {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
+}
+
+.site-footer__title {
+  font-size: 1.75rem;
+  margin-bottom: var(--space-sm);
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-lg);
+}
+
+.contact-list a {
+  display: inline-block;
+  padding: 0.25rem 0;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__place {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ---------- 10. Wider screens (tablet and laptop) ---------- */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 15rem;
+    gap: var(--space-lg);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  .hero__ornament {
+    order: 0;
+    width: 100%;
+  }
+
+  .project {
+    grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  /* Every second project flips: text left, image right */
+  .project:nth-of-type(even) .project__media {
+    order: 2;
+    justify-self: end;
+  }
+
+  .project:nth-of-type(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(14rem, 22rem);
+  }
+
+  .about {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) 18rem;
+  }
+}
+
+/* ---------- 11. Respect "reduce motion" settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
